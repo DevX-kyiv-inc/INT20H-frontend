@@ -1,0 +1,74 @@
+.user-name {
+   // background-color: #fff;
+   padding: 0.5rem 0.5rem 0.3rem;
+
+   position: relative;
+   z-index: 2;
+
+   .overlay {
+      transition: all 0.3s ease;
+      z-index: 1;
+      width: 100%;
+      // min-height: 100%;
+      position: absolute;
+      background-color: #fff;
+      opacity: 0;
+      top: 0;
+      left: 0;
+      border-radius: 12px;
+      border: 1px solid #000;
+
+      &:has(.--active){
+         opacity: 1;
+      }
+   }
+
+   .popapus {
+      // top:0;
+      // left: 0;
+      // position: absolute;
+
+      transition: all 0.3s ease;
+      width: 100%;
+
+      &.--active {
+         opacity: 1;
+      }
+
+      form {
+         width: 100%;
+         overflow: hidden;
+         display: flex;
+         justify-content: space-between;
+         padding: 0.3rem 0.5rem;
+         padding-top: 40px;
+         input {
+            width: min(calc(8ch + 20px), 100%);
+         }
+      }
+   }
+}
+
+.container {
+   position: relative;
+   z-index: 2;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 40px;
+   span {
+      min-width: 8ch;
+   }
+   & > * {
+      display: block;
+   }
+
+   &::before{
+      position: absolute;
+      top:-5px;
+      font-size: 0.8em;
+      content: "username";
+      left:50%;
+      transform: translate(-50%,0);
+   }
+}
