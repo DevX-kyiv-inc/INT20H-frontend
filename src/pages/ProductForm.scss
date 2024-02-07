@@ -1,0 +1,14 @@
+.product-form{
+   & > * {
+      display:block;
+   }
+   .photo{
+      height: 200px;
+      aspect-ratio: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px dashed #000;
+
+   }
+}
