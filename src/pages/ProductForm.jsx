@@ -49,10 +49,12 @@ export default function ProductForm() {
          fund,
          fundPercentage,
 
-         expirationTime: generateExpirationDate(minutes)
+         expirationTime: minutes
       };
       console.log(sendData);
-      fetch(REST.postCreate,{headers:{
+      fetch(REST.postCreate,{
+         method: "POST",
+         headers:{
          ...sendData
       },
       body : formData
@@ -75,6 +77,7 @@ export default function ProductForm() {
             <label className="name">
                <span>Product name</span>
                <input
+                   name="name"
                   type="text"
                   value={name}
                   onChange={({ target }) => setName(() => target.value)}
