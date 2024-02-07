@@ -26,7 +26,7 @@ export default function Home() {
          </form>
          <ul className="product-container">
             <li>
-               <button>create new</button>
+               <button><NavLink to="/create">create</NavLink></button>
             </li>
             {testData.map((el, i) => (
                <ProductPreview

@@ -7,6 +7,7 @@ import Layout from "./Layout.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route, NavLink } from "react-router-dom";
 import Home from "./pages/Home.jsx";
+import ProductForm from "./pages/ProductForm.jsx";
 import ProductRoom from "./pages/ProductRoom.jsx";
 import Funds from "./pages/Funds.jsx";
 import Info from "./pages/info.jsx";
@@ -26,6 +27,7 @@ function App() {
          <Routes>
             <Route path="/" element={<Layout/>}>
                <Route path="/" element={<Home/>}/>
+               <Route path="/create" element={<ProductForm/>}/>
                <Route path="/product/:id" element={<ProductRoom/>}/>
                <Route path="/funds" element={<Funds />}/>
                <Route path="/info" element={<Info />}/>

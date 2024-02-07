@@ -8,7 +8,11 @@ export default function ProductRoom() {
             <div className="product-room">
                <h1>{id}</h1>
 
-               
+               <div className="buttons">
+                  <button>Raise</button>
+               </div>
+               <input type="text" />
+               <button>raise custom</button>
             </div>
             <aside className="chat">chatnahui</aside>
          </main>
