@@ -7,24 +7,26 @@ import "./Home.scss";
 import {Plus} from "../components/UiIcons.jsx";
 
 import {REST} from "../env/config.jsx"
-
-const testData = [
-   { id: 2867, name: "anal dildo", description: "great joy for your crack" },
-   { id: 5641, name: "vacuum vibrator", description: "🤫" }
-];
+// const testData = [
+//    { id: 2867, name: "anal dildo", description: "great joy for your crack" },
+//    { id: 5641, name: "vacuum vibrator", description: "🤫" }
+// ];
 
 export default function Home() {
+    const [auctions, setAuctions] = useState([]);
    const [filterIsClosed, setFilterIsClosed] = useState(false);
    const [filterSort, setFilterSort] = useState("new");
-   const submitFilterForm = (e) => {
-      const filterData = {
-         filterIsClosed,filterSort
-      }
+   const submitFilterForm = (e) =>{
       e.preventDefault();
       console.log(REST.getAll(0,filterIsClosed,filterSort));
    }
    useEffect(()=>{
-      const data = fetch(REST.getAll(0,false,"new")).then(res=>res.json()).then(data=>data)
+       fetch("http://localhost:8080/api/v2/allAuctions?").then(res=>res.json()).then(
+           (data)=>{
+               setAuctions(data);
+           }
+       )
+       // REST.getAll(0,false,"new";
    },[])
    return (
       <main>
@@ -33,15 +35,15 @@ export default function Home() {
          <form className="filters" onSubmit={submitFilterForm}>
             <div className="filter-input">
                <span>Show slosed</span>
-               <label class="custom-checkbox">
+               <label className="custom-checkbox">
     <input type="checkbox" checked={filterIsClosed} onChange={({target})=> setFilterIsClosed(target.checked)}/>
-    <span class="checkmark"></span>
+    <span className="checkmark"></span>
   </label>
                
             </div>
             <label className="filter-input">
                <span>sort by</span>
-               <div class="custom-select">
+               <div className="custom-select">
     <select value={filterSort} onChange={({target})=> setFilterSort(target.value)}>
       <option value="new">New</option>
       <option value="old">Old</option>
@@ -54,12 +56,14 @@ export default function Home() {
             <li>
                   <NavLink className="create" to="/create"><Plus /><span>new auction</span></NavLink>
             </li>
-            {testData.map((el, i) => (
+            {auctions && auctions.map((el, i) => (
                <ProductPreview
                   key={i}
                   id={el.id}
                   name={el.name}
                   description={el.description}
+                  price={el.startValue}
+                  src={el.photo}
                />
             ))}
          </ul>
@@ -67,18 +71,18 @@ export default function Home() {
    );
 }
 
-function ProductPreview({ id, name, description }) {
+function ProductPreview({ id, name, description, price, src }) {
    return (
       <li>
          <div className="data-container">
             <div className="left">
-               <img src="https://i.pinimg.com/564x/03/62/02/03620258dc720856a54eabe2e69f5e69.jpg"/>
+               <img src={src}/>
             </div>
             <div className="right">
                <h3>{name}</h3>
-               <p>10 minutes</p>
-               <p>$432</p>
-               <p></p>
+               {/*<p>10 minutes</p>*/}
+               <p>{price}</p>
+               <p>{description}</p>
             </div>
          </div>
          <NavLink className="details" to={`/auction/${id}`}>
