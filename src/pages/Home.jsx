@@ -31,10 +31,10 @@ export default function Home() {
    return (
       <main>
          <Outlet />
-         <h1>Products</h1>
+         <h1>Auctions</h1>
          <form className="filters" onSubmit={submitFilterForm}>
             <div className="filter-input">
-               <span>Show slosed</span>
+               <span>Closed</span>
                <label className="custom-checkbox">
     <input type="checkbox" checked={filterIsClosed} onChange={({target})=> setFilterIsClosed(target.checked)}/>
     <span className="checkmark"></span>
@@ -42,7 +42,7 @@ export default function Home() {
                
             </div>
             <label className="filter-input">
-               <span>sort by</span>
+               <span>Sort by</span>
                <div className="custom-select">
     <select value={filterSort} onChange={({target})=> setFilterSort(target.value)}>
       <option value="new">New</option>

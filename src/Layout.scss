@@ -1,5 +1,5 @@
 header nav {
-   padding: 0.3rem 0.5rem;
+   padding: 0.5rem 1rem;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -13,7 +13,8 @@ header nav {
 }
 
 header {
-   background-color: var(--light);
+   background-color: var(--black);
+   color: var(--light);
    // border-bottom: 2px solid var(--black);
    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
@@ -28,18 +29,23 @@ main{
 }
 
 footer{
-   background-color: var(--light);
+   background-color: var(--black);
+   color: var(--light);
    text-align: center;
    padding: 0.3rem 0.5rem;
    box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
    // border: 1px solid #000;
+
+   a{
+      text-decoration: underline;
+   }
 }
 
 
 header, footer {
    a {
-      font-weight: 700;
-      color: var(--blue) !important;
+      // font-weight: 700;
+      // color: var(--blue) !important;
       
       &:hover {
          text-decoration: underline;

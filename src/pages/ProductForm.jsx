@@ -63,7 +63,7 @@ export default function ProductForm() {
    })
    };
    return (
-      <div className="overlay">
+      <div className="overlayF">
          <form className="product-form" onSubmit={submit}>
             <NavLink to="/">home</NavLink>
             <label className="photo">

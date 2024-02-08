@@ -9,22 +9,22 @@ function UserName({ userName, setUserName }) {
       setUserName(nm=>{
          const x = localStorage.getItem("username");
          if (x) return x;
-         return "guest1234"
+         return "guest1234";
       })
    }, []);
    return (
       <div className="user-name">
-         <div className="overlay">
+         <div className={"overlay" + `${showForm ? " --active" : ""}`}>
             <EditForm setDisplayNameP={setUserName} showFormP={showForm} />
          </div>
-         <div className="container">
+         <div className={"container" + `${showForm ? " --active" : ""}`}>
             <span>{userName}</span>
             <div
                onClick={(e) => {
                   setShowForm((shF) => !shF);
                }}
             >
-               <Edit />
+               {!showForm ? <Edit /> : <Close/>}
             </div>
          </div>
       </div>
@@ -34,23 +34,25 @@ function UserName({ userName, setUserName }) {
 function EditForm({ setDisplayNameP, showFormP }) {
    const [userName, setUserName] = useState("");
    return (
-      <div className={"popapus" + `${showFormP ? " --active" : ""}`}>
          <form
-            className="form"
+            className="popapus"
             onSubmit={(e) => {
                e.preventDefault();
                setDisplayNameP((nm) => userName);
                localStorage.setItem("username", userName)
             }}
          >
+            <label>
+            <span>Set username</span>
             <input
+            placeholder="name"
                type="text"
                value={userName}
                onChange={(e) => setUserName((nm) => e.target.value)}
             />
+            </label>
             <button>Save</button>
          </form>
-      </div>
    );
 }
 

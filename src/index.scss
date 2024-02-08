@@ -20,6 +20,11 @@ html, body {
   background-color: #f2f2f2;
 }
 
+input {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
 h1,h2,h3,h4 {
   font-size: 1em;
   font-family: "Montserrat", sans-serif;

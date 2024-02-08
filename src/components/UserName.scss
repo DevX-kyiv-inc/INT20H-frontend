@@ -1,74 +1,76 @@
 .user-name {
    // background-color: #fff;
-   padding: 0.5rem 0.5rem 0.3rem;
 
    position: relative;
-   z-index: 2;
 
    .overlay {
-      transition: all 0.3s ease;
-      z-index: 1;
       width: 100%;
-      // min-height: 100%;
+      display: none;
+      z-index: 1;
       position: absolute;
-      background-color: #fff;
-      opacity: 0;
+      background-color: #1a1616;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.45);
       top: 0;
       left: 0;
-      border-radius: 12px;
-      border: 1px solid #000;
+      border-radius: 6px;
 
-      &:has(.--active){
-         opacity: 1;
-      }
-   }
-
-   .popapus {
-      // top:0;
-      // left: 0;
-      // position: absolute;
-
-      transition: all 0.3s ease;
-      width: 100%;
-
-      &.--active {
-         opacity: 1;
+      &.--active{
+         display: block;
       }
 
       form {
-         width: 100%;
-         overflow: hidden;
+         padding: 0 0.5rem 0.5rem;
+         padding-top: calc(0.6rem + 1.5rem + 0.2rem);
          display: flex;
-         justify-content: space-between;
-         padding: 0.3rem 0.5rem;
-         padding-top: 40px;
-         input {
-            width: min(calc(8ch + 20px), 100%);
+         flex-direction: column;
+         gap: 0.5rem;
+
+         label {
+            position: relative;
+            text-align: center;
+            input {
+               border-radius: 6px;
+               margin-top: 0.5rem;
+               outline: none;
+               border: none;
+               background-color: var(--light);
+               width: 100%;
+               padding: 0.3rem 0.5rem;
+            }
+
+            
+         }
+         button{
+            padding: 0.3rem 0.5rem;
+            border-radius: 6px;
+            border: none;
+            background-color: var(--green);
+            color: var(--light)
          }
       }
    }
 }
 
 .container {
+   &.--active {
+      box-shadow: none;
+   }
+   background-color: #1a1616;
+   box-shadow: 0 4px 16px rgba(0,0,0,0.45);
+   border-radius: 6px;
+   padding: 0.3rem 0.5rem;
+   gap:1rem;
    position: relative;
    z-index: 2;
    display: flex;
    justify-content: space-between;
    align-items: center;
-   gap: 40px;
    span {
-      min-width: 8ch;
+      min-width: 12ch;
    }
    & > * {
+      position: relative;
+      z-index: 3;
       display: block;
-   }
-
-   &::before{
-      position: absolute;
-      top:-5px;
-      font-size: 0.8em;
-      content: "username";
-      left:50%;
-      transform: translate(-50%,0);
    }
 }
