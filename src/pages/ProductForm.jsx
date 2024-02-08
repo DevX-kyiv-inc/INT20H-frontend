@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { NavLink } from "react-router-dom";
+
 import "./ProductForm.scss";
 
 import  {REST} from "../env/config.jsx";
@@ -61,8 +63,9 @@ export default function ProductForm() {
    })
    };
    return (
-      <main>
+      <div className="overlay">
          <form className="product-form" onSubmit={submit}>
+            <NavLink to="/">home</NavLink>
             <label className="photo">
                <span>photo</span>
                <input
@@ -132,6 +135,6 @@ export default function ProductForm() {
             </label>
             <button>submit</button>
          </form>
-      </main>
+         </div>
    );
 }

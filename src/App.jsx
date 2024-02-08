@@ -26,14 +26,14 @@ function App() {
       <BrowserRouter>
          <Routes>
             <Route path="/" element={<Layout/>}>
-               <Route path="/" element={<Home/>}/>
-               <Route path="/create" element={<ProductForm/>}/>
-               <Route path="/product/:id" element={<ProductRoom/>}/>
+               <Route path="/" element={<Home/>}>
+                  <Route path="/create" element={<ProductForm/>}/>
+               </Route>
+               <Route path="/auction/:id" element={<ProductRoom/>}/>
                <Route path="/funds" element={<Funds />}/>
-               <Route path="/info" element={<Info />}/>
+               <Route path="/credits" element={<Info />}/>
                </Route>   
          </Routes>
-         
       </BrowserRouter>
    );
 }

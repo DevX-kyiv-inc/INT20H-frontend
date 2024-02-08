@@ -1,5 +1,12 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
+
+import { useEffect, useState } from "react";
 import "./Home.scss";
+// import "./HomeCheckbox.scss";
+
+import {Plus} from "../components/UiIcons.jsx";
+
+import {REST} from "../env/config.jsx"
 
 const testData = [
    { id: 2867, name: "anal dildo", description: "great joy for your crack" },
@@ -7,28 +14,45 @@ const testData = [
 ];
 
 export default function Home() {
+   const [filterIsClosed, setFilterIsClosed] = useState(false);
+   const [filterSort, setFilterSort] = useState("new");
+   const submitFilterForm = (e) => {
+      const filterData = {
+         filterIsClosed,filterSort
+      }
+      e.preventDefault();
+      console.log(REST.getAll(0,filterIsClosed,filterSort));
+   }
+   useEffect(()=>{
+      const data = fetch(REST.getAll(0,false,"new")).then(res=>res.json()).then(data=>data)
+   },[])
    return (
       <main>
+         <Outlet />
          <h1>Products</h1>
-         <form className="filters">
-            <label>
+         <form className="filters" onSubmit={submitFilterForm}>
+            <div className="filter-input">
                <span>Show slosed</span>
-               <input type="checkbox" />
-            </label>
-            <label>
+               <label class="custom-checkbox">
+    <input type="checkbox" checked={filterIsClosed} onChange={({target})=> setFilterIsClosed(target.checked)}/>
+    <span class="checkmark"></span>
+  </label>
+               
+            </div>
+            <label className="filter-input">
                <span>sort by</span>
-               <select>
-                  <option value="new">new</option>
-                  <option value="old">old</option>
-               </select>
+               <div class="custom-select">
+    <select value={filterSort} onChange={({target})=> setFilterSort(target.value)}>
+      <option value="new">New</option>
+      <option value="old">Old</option>
+    </select>
+  </div>
             </label>
             <button>refresh</button>
          </form>
          <ul className="product-container">
             <li>
-               <button>
-                  <NavLink to="/create">create</NavLink>
-               </button>
+                  <NavLink className="create" to="/create"><Plus /><span>new auction</span></NavLink>
             </li>
             {testData.map((el, i) => (
                <ProductPreview
@@ -53,9 +77,11 @@ function ProductPreview({ id, name, description }) {
             <div className="right">
                <h3>{name}</h3>
                <p>10 minutes</p>
+               <p>$432</p>
+               <p></p>
             </div>
          </div>
-         <NavLink className="details" to={`/product/${id}`}>
+         <NavLink className="details" to={`/auction/${id}`}>
             Details
          </NavLink>
       </li>
