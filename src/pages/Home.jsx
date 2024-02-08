@@ -12,11 +12,11 @@ export default function Home() {
          <h1>Products</h1>
          <form className="filters">
             <label>
-               <span>is she a bad girl?😩</span>
+               <span>Show slosed</span>
                <input type="checkbox" />
             </label>
             <label>
-               <span>sort type</span>
+               <span>sort by</span>
                <select>
                   <option value="new">new</option>
                   <option value="old">old</option>
@@ -26,7 +26,9 @@ export default function Home() {
          </form>
          <ul className="product-container">
             <li>
-               <button><NavLink to="/create">create</NavLink></button>
+               <button>
+                  <NavLink to="/create">create</NavLink>
+               </button>
             </li>
             {testData.map((el, i) => (
                <ProductPreview
@@ -44,7 +46,15 @@ export default function Home() {
 function ProductPreview({ id, name, description }) {
    return (
       <li>
-         <h3>{name}</h3>
+         <div className="data-container">
+            <div className="left">
+               <img src="https://i.pinimg.com/564x/03/62/02/03620258dc720856a54eabe2e69f5e69.jpg"/>
+            </div>
+            <div className="right">
+               <h3>{name}</h3>
+               <p>10 minutes</p>
+            </div>
+         </div>
          <NavLink className="details" to={`/product/${id}`}>
             Details
          </NavLink>

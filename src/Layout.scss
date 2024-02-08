@@ -3,7 +3,7 @@ header nav {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   border: 1px solid #000;
+   // border: 1px solid #000;
 
    ul{
       display: flex;
@@ -12,9 +12,19 @@ header nav {
    }
 }
 
+header {
+   border-bottom: 2px solid var(--black);
+   box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
 main{
    width: min(1280px,100%);
    margin: 0 auto;
+   margin-top: 2rem;
+   h1{
+      text-align: center;
+      font-size: 2rem;
+   }
 }
 
 footer{
