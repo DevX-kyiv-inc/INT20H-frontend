@@ -18,18 +18,11 @@ function Layout() {
                      <NavLink to="funds">Funds</NavLink>
                   </li>
                </ul>
-               <ul>
-                  <li>
-                     <NavLink to="info">Info</NavLink>
-                  </li>
-                  <li>
                      <UserName userName={userName} setUserName={setUserName}/>
-                  </li>
-               </ul>
             </nav>
          </header>
          <Outlet />
-         <footer className="footer">Footeer</footer>
+         <footer className="footer">CharitX inc. <NavLink to="/credits">Credits</NavLink></footer>
       </>
    );
 }

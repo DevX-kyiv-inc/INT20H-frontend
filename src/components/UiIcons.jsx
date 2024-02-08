@@ -8,7 +8,7 @@ function Edit() {
             width="20px"
             viewBox="0 0 20 20"
          >
-            <g fill="#0F0F0F">
+            <g fill="#332d2d">
                <path d="M1 22a1 1 0 011-1h20a1 1 0 110 2H2a1 1 0 01-1-1z"></path>
                <path
                   fillRule="evenodd"
@@ -26,7 +26,7 @@ function Close() {
       <>
          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" width="20px" height="20px">
       <path
-        fill="#0F0F0F"
+        fill="#332d2d"
         d="M5.996 5.006a1 1 0 000 1.415l2.828 2.828-2.828 2.828a1 1 0 101.414 1.414l2.828-2.828 2.828 2.828a1 1 0 001.415-1.414l-2.828-2.828 2.828-2.828a1 1 0 00-1.415-1.415l-2.828 2.828L7.41 5.006a1 1 0 00-1.414 0z"
       ></path>
     </svg>
@@ -34,4 +34,19 @@ function Close() {
    );
 }
 
-export { Edit, Close };
+
+function Plus(){
+   return (
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="3 3 18 18" width="100px" height="100px" className="svg">
+        <path
+          stroke="#332d2d"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M6 12h12m-6-6v12"
+        ></path>
+      </svg>
+    );
+}
+
+export { Edit, Close, Plus };

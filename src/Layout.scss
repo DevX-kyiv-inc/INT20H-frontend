@@ -13,14 +13,14 @@ header nav {
 }
 
 header {
-   border-bottom: 2px solid var(--black);
+   background-color: var(--light);
+   // border-bottom: 2px solid var(--black);
    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
 main{
-   width: min(1280px,100%);
+   padding: 1.5rem 1rem;
    margin: 0 auto;
-   margin-top: 2rem;
    h1{
       text-align: center;
       font-size: 2rem;
@@ -28,7 +28,25 @@ main{
 }
 
 footer{
+   background-color: var(--light);
    text-align: center;
    padding: 0.3rem 0.5rem;
-   border: 1px solid #000;
+   box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+   // border: 1px solid #000;
 }
+
+
+header, footer {
+   a {
+      font-weight: 700;
+      color: var(--blue) !important;
+      
+      &:hover {
+         text-decoration: underline;
+      }
+      &.active{
+         text-decoration: underline;
+      }
+   }
+}
+

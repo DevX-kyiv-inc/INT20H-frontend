@@ -1,7 +1,24 @@
+.overlay{
+   top: 0;
+   left:0;
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-color: rgba(0, 0, 0, 0.15);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
 .product-form{
-   & > * {
-      display:block;
-   }
+   width: min(500px, 100%);
+   background-color: var(--light);
+   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
    .photo{
       height: 200px;
       aspect-ratio: 1;
