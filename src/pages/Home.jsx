@@ -13,7 +13,7 @@ const testData = [
 ];
 
 export default function Home() {
-    const [auctions, setAuctions] = useState(testData);
+    const [auctions, setAuctions] = useState([]);
    const [filterIsClosed, setFilterIsClosed] = useState(0);
    const [filterSort, setFilterSort] = useState("new");
 
@@ -22,14 +22,15 @@ export default function Home() {
       e.preventDefault();
       setGetUrl(REST.getAll(filterIsClosed,filterSort))
    }
-   useEffect(()=>{
-      console.log(getUrl);
-      //  fetch("http://localhost:8080/api/v2/allAuctions?").then(res=>res.json()).then(
-      //      (data)=>{
-      //          setAuctions(data);
-      //      }
-      //  )
-       // REST.getAll(0,false,"new";
+   useEffect(() => {
+       console.log(getUrl)
+       fetch(getUrl).then(res=>res.json()).then(
+           (data)=>{
+               console.log("penis");
+               setAuctions(data);
+           }
+       )
+       ;
    },[getUrl])
    return (
       <main>

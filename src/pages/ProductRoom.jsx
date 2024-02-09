@@ -5,9 +5,7 @@ import { useState, useEffect } from "react";
 
 // socket import
 // import Stomp from "stompjs";
-import SockJS from "sockjs-client";
-
-
+// import SockJS from "sockjs-client";
 const auctionLoadJSON = {
    id: 23,
    photo: "https/oleg/domination",
@@ -34,6 +32,18 @@ export default function ProductRoom() {
    const [bidData, setBidData] = useState({status: auctionLoadJSON.status, price: auctionLoadJSON.price, author: auctionLoadJSON.author});
 
    useEffect(()=>{
+      var stompClient = null;
+      function connect() {
+         var socket = new SockJS('http://localhost:8080/ws');
+         stompClient = Stomp.over(socket);
+         stompClient.connect({}, function(frame) {
+            stompClient.subscribe('/topic/message/1', function(response) {
+               showMessage(JSON.parse(response.body));
+            });
+         });
+
+      }
+      connect();
       // establish auction connection
       // fetch(AUCTION.getOne(id)).then(res=>res.json()).then(data=>{
       //    setLoadData(data);
@@ -56,8 +66,10 @@ export default function ProductRoom() {
                <Chat />
                <ChatUI />
             </aside>
+
          </div>
       </>
+
    );
 }
 

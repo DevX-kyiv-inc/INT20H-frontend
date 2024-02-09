@@ -4,7 +4,7 @@ const REST = {
    // auctions
    postCreate: `${BS}/api/v2/saveAuction`,
    getAll: (closed, filter) =>
-      `${BS}/api/v2/allAuctions?status=${closed}&filter=${filter}`,
+      `${BS}/api/v2/allAuctions?status=${closed}&sort=${filter}`,
 
    // funds
    getFunds: `${BS}/api/v2/funds`
