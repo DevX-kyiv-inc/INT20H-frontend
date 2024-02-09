@@ -20,20 +20,22 @@
    gap: 1.5rem;
 
    & > li:nth-child(1){
-      padding: 0;
-
-      .svg path {
-         transition: all 0.3s ease;
+      span {
+         color: var(--black);
       }
+      padding: 0;
       &:hover{
          .svg path{
                stroke: var(--red);
             }
-         }
+            span {
+               color: var(--red);
+            }
+      }
+         
       }
 
    & > li {
-      transition: all 0.3s ease;
       // border: 2px solid var(--black);
       min-height: 200px;
       background-color: var(--light);

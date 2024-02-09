@@ -1,0 +1,61 @@
+.product-room-main {
+    flex-grow: 1;
+
+    display: flex;
+    justify-content: space-between;
+    .content {
+        border: 1px solid #000;
+        margin: 0 2rem;
+    padding: 1rem;
+    flex-grow: 1;
+    }
+    .chat {
+        border: 1px solid #000;
+        width: min(400px,30vw);
+        background-color: var(--black);
+        color: var(--light);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        ul {
+            overflow-y: scroll;
+            flex-grow: 1;
+            padding: 1rem 1.5rem;
+        }
+    }
+
+    .chat-ui {
+        background-color: var(--dark);
+        padding: 0.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        gap:1rem;
+        .left {
+            flex-grow: 1;
+
+            textarea{
+                line-height: 1.5;
+                font-size: 0.9rem;
+                outline: none;
+                width: 100%;
+                resize: none;
+                height: calc(0.6rem + 3rem);
+                padding: 0.3rem 0.5rem;
+            }
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            & > *{
+                flex-grow: 1;
+            }
+        }
+        fieldset {
+            border: none;
+        }
+    }
+}

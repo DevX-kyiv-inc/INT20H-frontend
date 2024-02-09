@@ -7,27 +7,27 @@ import "./Home.scss";
 import {Plus} from "../components/UiIcons.jsx";
 
 import {REST} from "../env/config.jsx"
-// const testData = [
-//    { id: 2867, name: "anal dildo", description: "great joy for your crack" },
-//    { id: 5641, name: "vacuum vibrator", description: "🤫" }
-// ];
+const testData = [
+   { id: 2867, name: "anal dildo", description: "great joy for your crack" },
+   { id: 5641, name: "vacuum vibrator", description: "🤫" }
+];
 
 export default function Home() {
-    const [auctions, setAuctions] = useState([]);
+    const [auctions, setAuctions] = useState(testData);
    const [filterIsClosed, setFilterIsClosed] = useState(false);
    const [filterSort, setFilterSort] = useState("new");
    const submitFilterForm = (e) =>{
       e.preventDefault();
       console.log(REST.getAll(0,filterIsClosed,filterSort));
    }
-   useEffect(()=>{
-       fetch("http://localhost:8080/api/v2/allAuctions?").then(res=>res.json()).then(
-           (data)=>{
-               setAuctions(data);
-           }
-       )
-       // REST.getAll(0,false,"new";
-   },[])
+   // useEffect(()=>{
+   //     fetch("http://localhost:8080/api/v2/allAuctions?").then(res=>res.json()).then(
+   //         (data)=>{
+   //             setAuctions(data);
+   //         }
+   //     )
+   //     // REST.getAll(0,false,"new";
+   // },[])
    return (
       <main>
          <Outlet />

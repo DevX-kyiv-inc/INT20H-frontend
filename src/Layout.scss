@@ -22,7 +22,7 @@ header {
 main{
    padding: 1.5rem 1rem;
    margin: 0 auto;
-   h1{
+   & > h1{
       text-align: center;
       font-size: 2rem;
    }
@@ -42,17 +42,17 @@ footer{
 }
 
 
-header, footer {
-   a {
-      // font-weight: 700;
-      // color: var(--blue) !important;
+// header, footer {
+//    a {
+//       // font-weight: 700;
+//       // color: var(--blue) !important;
       
-      &:hover {
-         text-decoration: underline;
-      }
-      &.active{
-         text-decoration: underline;
-      }
-   }
-}
+//       &:hover {
+//          text-decoration: underline;
+//       }
+//       &.active{
+//          text-decoration: underline;
+//       }
+//    }
+// }
 

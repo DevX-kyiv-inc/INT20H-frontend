@@ -20,7 +20,7 @@ html, body {
   background-color: #f2f2f2;
 }
 
-input {
+input,textarea, button {
   box-sizing: border-box;
   font-family: inherit;
 }
@@ -57,6 +57,7 @@ a{
   --blue: #3b71ca;
   --green: #14a44d;
   --black: #332d2d;
+  --dark: #1a1616;
   --light: #fbfbfb;
   --red: #dc4c64;
 }
