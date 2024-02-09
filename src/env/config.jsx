@@ -18,15 +18,17 @@ const AUCTION = {
    getOne: (id) => `${BS}/api/v2/auction/${id}`,
 
    // sockets
-   connect: (id) => `${BS}/api/room/ws/${id}`,
-   subscribe: (id)=> `${BS}/api/room/topic/${id}`,
-   sendTo: (id) => `${BS}/api/room/sendto/${id}`
+   // connect: (id) => `${BS}/api/room/ws/${id}`,
+   connect: () => `${BS}/ws/`,
+   subscribe: (id)=> `${BS}/topic/bid/${id}`,
+   sendTo: (id) => `${BS}/app/bid/${id}`
 }
 
 
 const auctionJSON = {
    price: 3432,
    status : "open"
+   // authorName
 }
 
 const auctionLoadJSON = {
@@ -38,7 +40,7 @@ const auctionLoadJSON = {
    status: "active",
    expirationDate: "23-45",
    price: 45454,
-
+//author,contact
    fundNAME: "Pritula",
    fundPercentage: 50,
 }
@@ -47,11 +49,11 @@ const auctionLoadJSON = {
 
 const CHAT = {
    // rest
-   getMessages: (id) => `${BS}/api/v2/getmessages/${id}`,
+   getMessages: (id) => `${BS}/api/v2/messages/${id}`,
    // sockets
-   connect: (id) => `${BS}/api/chat/ws${id}`,
-   subscribe: (id) => `${BS}/api/chat/topic/${id}`,
-   sendTo: (id) => `${BS}/api/chat/sendto/${id}`
+   connect: () => `${BS}/ws`,
+   subscribe: (id) => `${BS}/topic/messages/${id}`,
+   sendTo: (id) => `${BS}/app/messages/${id}`
 }
 
 
