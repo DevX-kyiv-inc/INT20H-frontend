@@ -14,20 +14,23 @@ const testData = [
 
 export default function Home() {
     const [auctions, setAuctions] = useState(testData);
-   const [filterIsClosed, setFilterIsClosed] = useState(false);
+   const [filterIsClosed, setFilterIsClosed] = useState(0);
    const [filterSort, setFilterSort] = useState("new");
+
+   const [getUrl, setGetUrl] = useState(REST.getAll(0,"new"));
    const submitFilterForm = (e) =>{
       e.preventDefault();
-      console.log(REST.getAll(0,filterIsClosed,filterSort));
+      setGetUrl(REST.getAll(filterIsClosed,filterSort))
    }
-   // useEffect(()=>{
-   //     fetch("http://localhost:8080/api/v2/allAuctions?").then(res=>res.json()).then(
-   //         (data)=>{
-   //             setAuctions(data);
-   //         }
-   //     )
-   //     // REST.getAll(0,false,"new";
-   // },[])
+   useEffect(()=>{
+      console.log(getUrl);
+      //  fetch("http://localhost:8080/api/v2/allAuctions?").then(res=>res.json()).then(
+      //      (data)=>{
+      //          setAuctions(data);
+      //      }
+      //  )
+       // REST.getAll(0,false,"new";
+   },[getUrl])
    return (
       <main>
          <Outlet />
@@ -36,7 +39,7 @@ export default function Home() {
             <div className="filter-input">
                <span>Closed</span>
                <label className="custom-checkbox">
-    <input type="checkbox" checked={filterIsClosed} onChange={({target})=> setFilterIsClosed(target.checked)}/>
+    <input type="checkbox" checked={filterIsClosed} onChange={({target})=> setFilterIsClosed(target.checked ? 1: 0)}/>
     <span className="checkmark"></span>
   </label>
                

@@ -3,9 +3,8 @@ const BS = "http://localhost:8080";
 const REST = {
    // auctions
    postCreate: `${BS}/api/v2/saveAuction`,
-   getAll: (index, closed, filter) =>
-      `${BS}/api/v2/allAuctions?index=${index}&closed=${closed}&filter=${filter}`,
-   putChangeValue: (val) => `${BS}/api/v2/changeValue/${id}?value=${val}`,
+   getAll: (closed, filter) =>
+      `${BS}/api/v2/allAuctions?status=${closed}&filter=${filter}`,
 
    // funds
    getFunds: `${BS}/api/v2/funds`
@@ -19,7 +18,7 @@ const AUCTION = {
 
    // sockets
    // connect: (id) => `${BS}/api/room/ws/${id}`,
-   connect: () => `${BS}/ws/`,
+   connect: `${BS}/ws`,
    subscribe: (id)=> `${BS}/topic/bid/${id}`,
    sendTo: (id) => `${BS}/app/bid/${id}`
 }
@@ -40,7 +39,10 @@ const auctionLoadJSON = {
    status: "active",
    expirationDate: "23-45",
    price: 45454,
-//author,contact
+
+   author: "oleg",
+   contact: "@bhd_shvk04",
+
    fundNAME: "Pritula",
    fundPercentage: 50,
 }
@@ -51,7 +53,7 @@ const CHAT = {
    // rest
    getMessages: (id) => `${BS}/api/v2/messages/${id}`,
    // sockets
-   connect: () => `${BS}/ws`,
+   connect: `${BS}/ws`,
    subscribe: (id) => `${BS}/topic/messages/${id}`,
    sendTo: (id) => `${BS}/app/messages/${id}`
 }

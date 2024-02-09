@@ -1,14 +1,21 @@
+import { useEffect, useState } from "react"
 import "./Funds.scss"
 
+import {REST} from "../env/config.jsx";
+
 export default function Funds(){
+   const [funds, setFunds] = useState([]);
+   
+   useEffect(()=>{
+      fetch(REST.getFunds).then(res=>res.json()).then(data=>{
+         setFunds(data);
+      })
+   },[])
    return (<main>
       <h1>Funds</h1>
-      <ul className="funds">
-         <Fund name={"Фонд Сергія Притули"} money={1233}/>
-         <Fund name={"Фонд Сергія Притули"} money={1233}/>
-         <Fund name={"Фонд Сергія Притули"} money={1233}/>
-         <Fund name={"Фонд Сергія Притули"} money={1233}/>
-      </ul>
+      {funds && <ul className="funds">
+         {funds.map((el,i)=><Fund key={i} name={el.name} money={el.money}/>)}
+      </ul>}
    </main>)
 }
 
