@@ -12,15 +12,6 @@ import ProductRoom from "./pages/ProductRoom.jsx";
 import Funds from "./pages/Funds.jsx";
 import Info from "./pages/info.jsx";
 
-const product = {
-   id: "12123",
-   author: "oleg",
-   productName: "Oleg",
-   description: "232323",
-   startValue: "123123",
-   contact: ""
-};
-
 function App() {
    const [userName, setUserName] = useState("")
    return (

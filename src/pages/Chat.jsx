@@ -1,21 +1,5 @@
 import { useState, useEffect } from "react";
 import {REST,AUCTION, CHAT} from "../env/config.jsx";
-// import { json } from "react-router-dom";
-const messageData = [
-   {sender: "oleg", message: "bili jin nasral v kuvshin",
-color: "#dc4c64"},
-   {sender: "oleg", message: "bili jin nasral v kuvshin",
-color: "#dc4c64"},
-   {sender: "oleg", message: "bili jin nasral v kuvshin",
-color: "fbfbfb"},
-   {sender: "oleg", message: "bili jin nasral v kuvshin",
-color: "fbfbfb"},
-   {sender: "oleg", message: "bili jin nasral v kuvshin",
-color: "fbfbfb"},
-   {sender: "oleg", message: "bili jin nasral v kuvshin",
-color: "fbfbfb"},
-]
-
 export default function Chat({userName, id}){
    const [chatStomp, setChatStomp] = useState(null);
    const [messages, setMessages] = useState([]);

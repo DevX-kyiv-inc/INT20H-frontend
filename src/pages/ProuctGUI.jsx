@@ -7,6 +7,8 @@ export default function ProductGUI({userName, id, value,status}){
 
    const [bidStomp, setBidStomp] = useState(null);
 
+   const [pendosWakeUp, setPendosWakeUp] = useState(false);
+
 
    const [inputBidValue, setInputBidValue] = useState(0);
 
@@ -45,18 +47,23 @@ export default function ProductGUI({userName, id, value,status}){
          <div className="bid-statu">
             <p>Current price: ${bidData.value}</p>
             <p>{bidData.name ? `last bidder: ${bidData.name}` : " "}</p>
+            <p>{pendosWakeUp && "не можна так 🥺"}</p>
          </div>
       </div>
-      <form className="input-bar" onSubmit={(e)=>{
+       { (bidData.status ? true : false) && <form className="input-bar" onSubmit={(e)=>{
+         setPendosWakeUp(bidData.value >= inputBidValue);
+
          e.preventDefault();
          const sendData={
             value: inputBidValue,
             name: userName
          }
-         bidStomp.send(AUCTION.sendTo(id),{}, JSON.stringify(sendData))
+         if (bidData.value < inputBidValue){
+            bidStomp.send(AUCTION.sendTo(id),{}, JSON.stringify(sendData))
+         }
       }}>
-         <input type="number" value={inputBidValue} onChange={({target})=>setInputBidValue(target.value)}/>
-         <button>BID</button>
-      </form>
+         <input disabled={bidData.status ? false : true} type="number" value={inputBidValue} onChange={({target})=>setInputBidValue(target.value)}/>
+         <button>BID</button> 
+      </form> }
    </div>)
 }

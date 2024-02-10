@@ -6,11 +6,7 @@ import "./Home.scss";
 
 import {Plus} from "../components/UiIcons.jsx";
 
-import {REST} from "../env/config.jsx"
-const testData = [
-   { id: 2867, name: "anal dildo", description: "great joy for your crack" },
-   { id: 5641, name: "vacuum vibrator", description: "🤫" }
-];
+import {REST} from "../env/config.jsx";
 
 export default function Home() {
     const [auctions, setAuctions] = useState([]);

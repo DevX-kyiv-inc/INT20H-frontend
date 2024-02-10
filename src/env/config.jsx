@@ -8,9 +8,7 @@ const REST = {
 
    // funds
    getFunds: `${BS}/api/v2/funds`
-
 };
-
 
 const AUCTION = {
    // rest
@@ -19,37 +17,11 @@ const AUCTION = {
    // sockets
    // connect: (id) => `${BS}/api/room/ws/${id}`,
    connect: `${BS}/ws`,
-   subscribe: (id)=> `/topic/bid/${id}`,
+   subscribe: (id) => `/topic/bid/${id}`,
    sendTo: (id) => `/app/bid/${id}`,
 
    currentBid: (id) => `${BS}/api/v2/currentBid/${id}`
-}
-
-
-const auctionJSON = {
-   price: 3432,
-   status : "open"
-   // authorName
-}
-
-const auctionLoadJSON = {
-   id: 23,
-   photo: "https/oleg/domination",
-   name: "oleg",
-   description: "sussy blue balls",
-
-   status: "active",
-   expirationDate: "23-45",
-   price: 45454,
-
-   author: "oleg",
-   contact: "@bhd_shvk04",
-
-   fundNAME: "Pritula",
-   fundPercentage: 50,
-}
-
-
+};
 
 const CHAT = {
    // rest
@@ -58,16 +30,8 @@ const CHAT = {
    connect: `${BS}/ws`,
    subscribe: (id) => `/topic/messages/${id}`,
    sendTo: (id) => `/app/messages/${id}`
-}
+};
 
-
-const chatJSON = {
-   username: "oleg",
-   color: "#ginger",
-   message: "Fortnite balls am gay"
-}
 // getMessages - gets Array of chatJSON
 
-
-
-export {REST, AUCTION, CHAT};
+export { REST, AUCTION, CHAT };

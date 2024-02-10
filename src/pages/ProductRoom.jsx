@@ -8,24 +8,6 @@ import { useState, useEffect } from "react";
 import Chat from "./Chat.jsx";
 import ProductGUI from "./ProuctGUI.jsx";
 
-const auctionLoadJSON = {
-   id: 23,
-   photo: "https/oleg/domination",
-   name: "oleg",
-   description: "sussy blue balls",
-
-   status: "active",
-   expirationDate: "23-45",
-   price: 400,
-   
-   author: "oleg",
-   contact: "@bhd_shvk04",
-
-   fundNAME: "Pritula",
-   fundPercentage: 50,
-}
-
-
 // const sssrc = "https://i.pinimg.com/236x/5e/f2/b5/5ef2b5d507f02118f2622b1c1c1ddd3a.jpg";
 export default function ProductRoom({userName}) {
    const {id} = useParams();
