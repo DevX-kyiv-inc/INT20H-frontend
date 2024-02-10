@@ -19,8 +19,10 @@ const AUCTION = {
    // sockets
    // connect: (id) => `${BS}/api/room/ws/${id}`,
    connect: `${BS}/ws`,
-   subscribe: (id)=> `${BS}/topic/bid/${id}`,
-   sendTo: (id) => `${BS}/app/bid/${id}`
+   subscribe: (id)=> `/topic/bid/${id}`,
+   sendTo: (id) => `/app/bid/${id}`,
+
+   currentBid: (id) => `${BS}/api/v2/currentBid/${id}`
 }
 
 
@@ -54,8 +56,8 @@ const CHAT = {
    getMessages: (id) => `${BS}/api/v2/messages/${id}`,
    // sockets
    connect: `${BS}/ws`,
-   subscribe: (id) => `${BS}/topic/messages/${id}`,
-   sendTo: (id) => `${BS}/app/messages/${id}`
+   subscribe: (id) => `/topic/messages/${id}`,
+   sendTo: (id) => `/app/messages/${id}`
 }
 
 

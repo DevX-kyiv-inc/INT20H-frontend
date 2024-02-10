@@ -19,16 +19,17 @@
 
     .photo-and-text{
         margin-top: 1rem;
-        display: grid;
-        grid-template-columns: 4fr 5fr;
+        display: flex;
         gap: 1rem;
     }
 
     .photo-container {
         border: 1px solid #000;
+        width: 400px;
         img{
             display: block;
             width: 100%;
+            object-fit: contain;
         }
     }
 
