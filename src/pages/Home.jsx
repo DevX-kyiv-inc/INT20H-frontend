@@ -17,21 +17,23 @@ export default function Home() {
    const [filterIsClosed, setFilterIsClosed] = useState(0);
    const [filterSort, setFilterSort] = useState("new");
 
-   const [getUrl, setGetUrl] = useState(REST.getAll(0,"new"));
    const submitFilterForm = (e) =>{
       e.preventDefault();
-      setGetUrl(REST.getAll(filterIsClosed,filterSort))
+      console.log(REST.getAll(filterIsClosed,filterSort));
+      fetch(REST.getAll(filterIsClosed,filterSort)).then(res=>res.json()).then(
+         (data)=>{
+             setAuctions(data);
+         }
+     )
    }
    useEffect(() => {
-       console.log(getUrl)
-       fetch(getUrl).then(res=>res.json()).then(
+       fetch(REST.getAll(0,"new")).then(res=>res.json()).then(
            (data)=>{
-               console.log("penis");
                setAuctions(data);
            }
        )
        ;
-   },[getUrl])
+   },[])
    return (
       <main>
          <Outlet />

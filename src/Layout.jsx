@@ -4,8 +4,7 @@ import UserName from "./components/UserName";
 import { useState } from "react";
 
 import "./Layout.scss"
-function Layout() {
-   const [userName, setUserName] = useState("")
+function Layout({userName, setUserName}) {
    return (
       <>
          <header className="header">

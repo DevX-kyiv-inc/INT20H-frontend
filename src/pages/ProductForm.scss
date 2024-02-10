@@ -22,10 +22,23 @@
    .photo{
       height: 200px;
       aspect-ratio: 1;
+      border: 1px dashed #000;
+
+   }
+
+   .photoView{
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      border: 1px dashed #000;
-
+      flex-direction: column;
+      img {
+         height: 120px;
+         width: 200px;
+         object-fit: contain;
+      }
+      p{
+         margin-top: 1rem;
+      }
    }
 }

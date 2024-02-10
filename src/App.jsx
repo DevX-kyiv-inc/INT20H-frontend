@@ -22,14 +22,15 @@ const product = {
 };
 
 function App() {
+   const [userName, setUserName] = useState("")
    return (
       <BrowserRouter>
          <Routes>
-            <Route path="/" element={<Layout/>}>
+            <Route path="/" element={<Layout userName={userName} setUserName={setUserName} />}>
                <Route path="/" element={<Home/>}>
-                  <Route path="/create" element={<ProductForm/>}/>
+                  <Route path="/create" element={<ProductForm userName={userName}/>}/>
                </Route>
-               <Route path="/auction/:id" element={<ProductRoom/>}/>
+               <Route path="/auction/:id" element={<ProductRoom userName={userName}/>}/>
                <Route path="/funds" element={<Funds />}/>
                <Route path="/credits" element={<Info />}/>
                </Route>   
