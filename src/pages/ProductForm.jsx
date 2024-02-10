@@ -7,11 +7,16 @@ import "./ProductForm.scss";
 import  {REST} from "../env/config.jsx";
 
 
-export default function ProductForm() {
+export default function ProductForm({userName}) {
+
+
    // photo
    const [image, setImage] = useState(null);
    const formData = new FormData();
    formData.append("file", image);
+   // photo visual
+   const imageName = image && image.name;
+   const imageSrc = image && URL.createObjectURL(image); 
 
    // name
    const [name, setName] = useState("");
@@ -21,6 +26,12 @@ export default function ProductForm() {
 
    // price
    const [price, setPrice] = useState("");
+
+   // author
+   const [authorName, setAuthorName] = useState(userName);
+
+   // contact
+   const [contact, setContanct] = useState("");
 
    // fundType
    const [fund, setFund] = useState("1");
@@ -43,8 +54,8 @@ export default function ProductForm() {
          name,
          desc, 
 
-         authorName: "oleg",
-         contact: "@bhd_shvk04",
+         authorName,
+         contact,
 
          price,
 
@@ -53,7 +64,7 @@ export default function ProductForm() {
 
          expirationTime: minutes
       };
-      console.log(sendData);
+      console.log(imageName, imageSrc);
       fetch(REST.postCreate,{
          method: "POST",
          headers:{
@@ -65,9 +76,12 @@ export default function ProductForm() {
    return (
       <div className="overlayF">
          <form className="product-form" onSubmit={submit}>
-            <NavLink to="/">home</NavLink>
+            <NavLink to="/">Back</NavLink>
             <label className="photo">
-               <span>photo</span>
+               <div className="photoView">
+            {imageSrc && <img src={imageSrc}/>}
+               <p >{imageName ? imageName : "insert photo" }</p>
+               </div>
                <input
                   type="file"
                   onChange={({ target }) => {
@@ -102,6 +116,24 @@ export default function ProductForm() {
                   onChange={({ target }) => setPrice(() => target.value)}
                />
             </label>
+
+            <label className="author-name">
+               <span>Author</span>
+               <input
+                  type="text"
+                  value={authorName}
+                  onChange={({ target }) => setAuthorName(() => target.value)}
+               />
+            </label>
+            <label className="contact">
+               <span>Contact</span>
+               <input
+                  type="text"
+                  value={contact}
+                  onChange={({ target }) => setContanct(() => target.value)}
+               />
+            </label>
+
             <label className="fund">
                <span>fund</span>
                <select
@@ -130,7 +162,7 @@ export default function ProductForm() {
             </label>
             <label htmlFor="" className="minutes">
                <span>expiration</span>
-               <input type="text"  value={minutes}
+               <input type="number"  value={minutes}
                   onChange={({ target }) => setMinutes(() => target.value)}/>
             </label>
             <button>submit</button>

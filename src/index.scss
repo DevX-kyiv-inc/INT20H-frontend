@@ -54,12 +54,13 @@ a{
   color: var(--black);
 
   // vars
-  --blue: #3b71ca;
-  --green: #14a44d;
+  
   --black: #332d2d;
   --dark: #1a1616;
   --light: #fbfbfb;
   --red: #dc4c64;
+  --blue: #3b71ca;
+  --green: #14a44d;
 }
 main{
   width: min(1280px,100%);

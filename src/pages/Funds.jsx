@@ -14,7 +14,7 @@ export default function Funds(){
    return (<main>
       <h1>Funds</h1>
       {funds && <ul className="funds">
-         {funds.map((el,i)=><Fund key={i} name={el.name} money={el.money}/>)}
+         {funds.map((el,i)=><Fund key={i} name={el.name} money={el.value}/>)}
       </ul>}
    </main>)
 }
