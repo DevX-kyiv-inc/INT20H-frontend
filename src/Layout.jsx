@@ -3,6 +3,8 @@ import UserName from "./components/UserName";
 
 import { useState } from "react";
 
+import Logo from "/Logo.svg";
+
 import "./Layout.scss"
 function Layout({userName, setUserName}) {
    return (
@@ -11,7 +13,7 @@ function Layout({userName, setUserName}) {
             <nav>
                <ul>
                   <li>
-                     <NavLink to="/">CharitX</NavLink>
+                     <NavLink to="/"><img className="logo" src={Logo} alt=""/></NavLink>
                   </li>
                   <li>
                      <NavLink to="funds">Funds</NavLink>

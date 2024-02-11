@@ -1,4 +1,4 @@
-const BS = "http://localhost:8080";
+const BS = "http://ec2-34-201-106-40.compute-1.amazonaws.com";
 
 const REST = {
    // auctions

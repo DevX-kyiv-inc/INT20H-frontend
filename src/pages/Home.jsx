@@ -23,6 +23,7 @@ export default function Home() {
      )
    }
    useEffect(() => {
+      console.log(REST.getAll(0,"new"));
        fetch(REST.getAll(0,"new")).then(res=>res.json()).then(
            (data)=>{
                setAuctions(data);
@@ -36,7 +37,7 @@ export default function Home() {
          <h1>Auctions</h1>
          <form className="filters" onSubmit={submitFilterForm}>
             <div className="filter-input">
-               <span>Closed</span>
+               <span>Only active</span>
                <label className="custom-checkbox">
     <input type="checkbox" checked={filterIsClosed} onChange={({target})=> setFilterIsClosed(target.checked ? 1: 0)}/>
     <span className="checkmark"></span>

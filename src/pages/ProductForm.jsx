@@ -49,6 +49,7 @@ export default function ProductForm({userName}) {
    }
 
    const submit = (e) => {
+      console.log(REST.postCreate);
       e.preventDefault();
       const sendData = {
          name,
@@ -64,7 +65,7 @@ export default function ProductForm({userName}) {
 
          expirationTime: minutes
       };
-      console.log(imageName, imageSrc);
+      // console.log(imageName, imageSrc);
       fetch(REST.postCreate,{
          method: "POST",
          headers:{
@@ -76,7 +77,7 @@ export default function ProductForm({userName}) {
    return (
       <div className="overlayF">
          <form className="product-form" onSubmit={submit}>
-            <NavLink to="/">Back</NavLink>
+            <NavLink to="/"> {"<"} Back</NavLink>
             <label className="photo">
                <div className="photoView">
             {imageSrc && <img src={imageSrc}/>}
@@ -102,15 +103,17 @@ export default function ProductForm({userName}) {
             </label>
             <label className="description">
                <span>Description</span>
-               <input
+               <textarea
+               rows={2}
                   type="text"
                   value={desc}
                   onChange={({ target }) => setDesc(() => target.value)}
                />
             </label>
             <label className="price">
-               <span>Price</span>
+               <span>Start price (in USD)</span>
                <input
+                  placeholder="400"
                   type="number"
                   value={price}
                   onChange={({ target }) => setPrice(() => target.value)}
@@ -128,6 +131,7 @@ export default function ProductForm({userName}) {
             <label className="contact">
                <span>Contact</span>
                <input
+               placeholder="telegram"
                   type="text"
                   value={contact}
                   onChange={({ target }) => setContanct(() => target.value)}
@@ -135,7 +139,7 @@ export default function ProductForm({userName}) {
             </label>
 
             <label className="fund">
-               <span>fund</span>
+               <span>Fund</span>
                <select
                   value={fund}
                   onChange={({ target }) => setFund(() => target.value)}
@@ -147,7 +151,7 @@ export default function ProductForm({userName}) {
                </select>
             </label>
             <label className="fund-percentage">
-               <span>скока деняг?</span>
+               <span>Fund percentage</span>
                <select
                   value={fundPercentage}
                   onChange={({ target }) =>
@@ -161,8 +165,9 @@ export default function ProductForm({userName}) {
                </select>
             </label>
             <label htmlFor="" className="minutes">
-               <span>expiration</span>
+               <span>Expiration time (in minutes)</span>
                <input type="number"  value={minutes}
+                  placeholder="10"
                   onChange={({ target }) => setMinutes(() => target.value)}/>
             </label>
             <button>submit</button>
