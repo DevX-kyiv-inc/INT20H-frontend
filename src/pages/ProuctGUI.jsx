@@ -18,7 +18,8 @@ export default function ProductGUI({userName, id, value,status}){
 
       bidStomp.connect({}, ()=> {
          fetch(AUCTION.currentBid(id)).then(res=>res.json()).then(data=>{
-            setBidData(data);
+            console.log(data);
+            setBidData({value: data.amount, name: data.bidderName}, status);
          }).catch(err=>{
             console.log(value);
             console.log(status);

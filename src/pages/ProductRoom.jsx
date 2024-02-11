@@ -58,7 +58,7 @@ function ProductInfo({data, expireTime}){
         setTimeDifference(Math.floor((expirationDateTime - currentDate) / (1000)));
       };
       calculateMinutesRemaining();
-      const timerId = setInterval(calculateMinutesRemaining, 5000);
+      const timerId = setInterval(calculateMinutesRemaining, 1000);
   
       return () => clearInterval(timerId);
     }, []);
