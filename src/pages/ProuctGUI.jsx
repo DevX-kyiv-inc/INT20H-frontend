@@ -56,7 +56,8 @@ export default function ProductGUI({userName, id, value,status}){
          e.preventDefault();
          const sendData={
             value: inputBidValue,
-            name: userName
+            name: userName,
+            status: 1
          }
          if (bidData.value < inputBidValue){
             bidStomp.send(AUCTION.sendTo(id),{}, JSON.stringify(sendData))

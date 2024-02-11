@@ -48,8 +48,11 @@ function ProductInfo({data, expireTime}){
    const [timeDifference, setTimeDifference] = useState(0);
    useEffect(() => {
       const calculateMinutesRemaining = () => {
-         const expirationDateTime = new Date(expireTime);
+         const expirationDateTime = new Date(expireTime)
+         expirationDateTime.setHours(expirationDateTime.getHours() + 2);
          const currentDate = new Date();
+         console.log(expirationDateTime);
+         console.log(currentDate);
         
         // Calculate the difference in milliseconds
         setTimeDifference(Math.floor((expirationDateTime - currentDate) / (1000)));
