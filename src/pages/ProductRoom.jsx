@@ -15,7 +15,7 @@ export default function ProductRoom({userName}) {
    const [expireTime, setExpireTime] = useState("");
 
    const [value, setValue] = useState(null);
-   const [status, setStatus] = useState(null);
+   const [status, setStatus] = useState(0);
 
    useEffect(() => {
       // load data
@@ -51,8 +51,6 @@ function ProductInfo({data, expireTime}){
          const expirationDateTime = new Date(expireTime)
          expirationDateTime.setHours(expirationDateTime.getHours() + 2);
          const currentDate = new Date();
-         console.log(expirationDateTime);
-         console.log(currentDate);
         
         // Calculate the difference in milliseconds
         setTimeDifference(Math.floor((expirationDateTime - currentDate) / (1000)));
