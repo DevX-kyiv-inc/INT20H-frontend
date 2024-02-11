@@ -9,7 +9,7 @@ export default function Info() {
          <p>Учасники команди:</p>
          <ul>
             <Teammate
-               postion={"TeamLead/Front-end/Design"}
+               postion={"TeamLead/Front-end"}
                name={"Шовкопляс Богдан"}
                anchor={
                   "https://www.linkedin.com/in/bohdan-shovkoplias-271845266/"
@@ -21,7 +21,7 @@ export default function Info() {
                anchor={"https://www.linkedin.com/in/artem-fedorov-10b694282/"}
             />
             <Teammate
-               postion={"Database manager"}
+               postion={"Database manager/Logo"}
                name={"Данечкін Микита"}
                anchor={"https://www.linkedin.com/in/mykytadanechkin/"}
             />
