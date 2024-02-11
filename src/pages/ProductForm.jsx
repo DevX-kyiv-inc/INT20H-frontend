@@ -14,6 +14,7 @@ export default function ProductForm({userName}) {
    const [image, setImage] = useState(null);
    const formData = new FormData();
    formData.append("file", image);
+   const imageSize = image?.size ? image?.size > 1000000 : false;
    // photo visual
    const imageName = image && image.name;
    const imageSrc = image && URL.createObjectURL(image); 
@@ -49,8 +50,9 @@ export default function ProductForm({userName}) {
    }
 
    const submit = (e) => {
-      console.log(REST.postCreate);
       e.preventDefault();
+      if (imageSize) return;
+      console.log(image, formData);
       const sendData = {
          name,
          desc, 
@@ -81,7 +83,8 @@ export default function ProductForm({userName}) {
             <label className="photo">
                <div className="photoView">
             {imageSrc && <img src={imageSrc}/>}
-               <p >{imageName ? imageName : "insert photo" }</p>
+               <p >{imageName ? imageName : "insert photo (max 1.0 MB)" }</p>
+               {imageSize && <p style={{color: "#dc4c64"}}>photo is too large (max 1.0 MB)</p>}
                </div>
                <input
                   type="file"
@@ -170,7 +173,7 @@ export default function ProductForm({userName}) {
                   placeholder="10"
                   onChange={({ target }) => setMinutes(() => target.value)}/>
             </label>
-            <button>submit</button>
+            {!imageSize && <button>submit</button>}
          </form>
          </div>
    );

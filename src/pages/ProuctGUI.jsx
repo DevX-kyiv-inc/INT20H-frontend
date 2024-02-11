@@ -29,8 +29,8 @@ export default function ProductGUI({userName, id, value,status}){
          setBidStomp(bidStomp)
             bidStomp.subscribe(AUCTION.subscribe(id), (response)=>{
                // console.log("oleg");
-               console.log(JSON.parse(response.body))
-               setBidData(JSON.parse(response.body));
+               const data = JSON.parse(response.body);
+               setBidData(data);
             });
          })
       return () => {
