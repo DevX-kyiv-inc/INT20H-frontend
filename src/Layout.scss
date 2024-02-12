@@ -17,6 +17,8 @@ header nav {
 }
 
 header {
+   position: relative;
+   z-index: 3;
    background-color: var(--black);
    color: var(--light);
    // border-bottom: 2px solid var(--black);
@@ -33,6 +35,8 @@ main{
 }
 
 footer{
+   position: relative;
+   z-index: 3;
    background-color: var(--black);
    color: var(--light);
    text-align: center;

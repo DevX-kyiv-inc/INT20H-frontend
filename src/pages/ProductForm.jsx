@@ -93,9 +93,9 @@ export default function ProductForm({ userName }) {
       console.log([imageName,name, desc, authorName, contact, price, minutes]);
       const invalid = [imageName, name, desc, authorName, contact, price, minutes].some(
          (el) => {
-            console.log(el);
-            console.log(el.trim() === "");
-            return el.trim() === "";
+            // console.log(el);
+            // console.log(el.trim() === "");
+            return el ? el.trim() === "" : true;
          }
       );
       console.log("oleg");
@@ -106,7 +106,7 @@ export default function ProductForm({ userName }) {
       }
 
       const urlData =
-         `?name=${name}&desc=${desc}` +
+         `?name=${name}&description=${desc}` +
          `&authorName=${authorName}&contact=${contact}` +
          `&price=${price}&fund=${fund}` +
          `&fundPercentage=${fundPercentage}` +

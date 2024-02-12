@@ -21,7 +21,7 @@ export default function Funds(){
 
 function Fund({name, money}){
    return (<li className="fund">
-      <h2>{name}</h2>
-      <p>{money}</p>
+      <h2 style={{textAlign: "center"}}>{name}</h2>
+      <p style={{textAlign: "center"}}>${money}</p>
    </li>)
 }
