@@ -1,7 +1,18 @@
 // import { Children } from "react";
+import { useEffect } from "react";
 import LinkidinIcon from "/likidin.svg";
 
 export default function Info() {
+   // test
+   // useEffect(()=>{
+   //    fetch("https://v2.jokeapi.dev/joke/Any").then(({status}) => {
+   //       if (`${status}`[0] === "2"){
+   //          console.log(status);
+   //          console.log("okay")
+   //       }
+   //    });
+   // },[])
+   // test
    return (
       <main>
          <h1>Info</h1>

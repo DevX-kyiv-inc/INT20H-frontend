@@ -9,6 +9,7 @@ import {Plus} from "../components/UiIcons.jsx";
 import {REST} from "../env/config.jsx";
 
 export default function Home() {
+   const [trigger, setTrigger] = useState(false);
     const [auctions, setAuctions] = useState([]);
    const [filterIsClosed, setFilterIsClosed] = useState(0);
    const [filterSort, setFilterSort] = useState("new");
@@ -22,6 +23,7 @@ export default function Home() {
          }
      )
    }
+
    useEffect(() => {
       console.log(REST.getAll(0,"new"));
        fetch(REST.getAll(0,"new")).then(res=>res.json()).then(
@@ -30,10 +32,10 @@ export default function Home() {
            }
        )
        ;
-   },[])
+   },[trigger])
    return (
       <main>
-         <Outlet />
+         <Outlet context={[setTrigger]}/>
          <h1>Auctions</h1>
          <form className="filters" onSubmit={submitFilterForm}>
             <div className="filter-input">
@@ -84,7 +86,7 @@ function ProductPreview({ id, name, description, price, src }) {
             <div className="right">
                <h3>{name}</h3>
                {/*<p>10 minutes</p>*/}
-               <p>{price}</p>
+               {/* <p>${price}</p> */}
                <p>{description}</p>
             </div>
          </div>
